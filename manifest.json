@@ -1,0 +1,35 @@
+{
+  "name": "Amazon research buddy",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Helps save time by tracking the progress of your Amazon product research. Star products for possible selection.",
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "icons": {
+    "16": "/assets/amazon-icon-16.png",
+    "32": "/assets/amazon-icon-32.png",
+    "48": "/assets/amazon-icon-48.png",
+    "128": "/assets/amazon-icon-128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "/assets/amazon-icon-16.png",
+      "32": "/assets/amazon-icon-32.png",
+      "48": "/assets/amazon-icon-48.png",
+      "128": "/assets/amazon-icon-128.png"
+    }
+  },
+  "content_scripts": [
+    {"matches": ["http://www.amazon.com/*", "https://www.amazon.com/*"],
+     "js": ["/js/jquery-1.7.1.min.js","/js/product-information.js","/js/amazon-research-buddy.js"],
+     "css": ["/css/research.css"]}
+  ],
+  "web_accessible_resources": [
+    "/assets/*.png"
+  ]
+}
