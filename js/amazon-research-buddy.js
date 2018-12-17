@@ -135,14 +135,17 @@ fetch(PRODUCT_SEARCH_API_URL(asin), {
 }).then(function() { 
     toggleStarred('Product previously starred.',deleteAsin, true);
 }).catch(function(error) {
-    toggleStarred('Product not starred.',addAsin ,false);
+    if (asin != undefined){
+        toggleStarred('Product not starred.',addAsin ,false);
+    }
+    
 });
 
 var price = getProductPrice();
 var description = getDescription();
 var productRankAndCategory = getProductCategoryAndRank();
 
-if (DEBUG){
+if (DEBUG && asin != undefined){
     setDebugInfo(description.substr(0, 19), price, productRankAndCategory.category, productRankAndCategory.rank);
 }
 
